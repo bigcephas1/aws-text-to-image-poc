@@ -1,0 +1,19 @@
+# Ignore terraform folder contents
+terraform/.terraform/
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+
+# Logs
+terraform/crash.log
+
+# Variable and plan files
+terraform/*.tfvars
+terraform/*.tfvars.json
+terraform/*.plan
+
+# Override files
+terraform/override.tf
+terraform/override.tf.json
+terraform/*_override.tf
+terraform/*_override.tf.json
+
