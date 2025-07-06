@@ -9,11 +9,13 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      TF_VAR_public_key: ${{ secrets.PUBLIC_SSH_KEY }}
       TF_VAR_openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      TF_VAR_instance_name: "text-to-image-app"
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
     steps:
     - name: Checkout repository
@@ -45,4 +47,3 @@ jobs:
     - name: Terraform Apply
       working-directory: terraform
       run: terraform apply -auto-approve
-
